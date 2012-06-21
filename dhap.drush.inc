@@ -5,8 +5,8 @@
  */
 function dhap_drush_help($section) {
   switch ($section) {
-    default:
-      return dt('I have no sections yet.');
+    case 'meta:dhap:title':
+      return dt('Drush Tools for Highly Attractive People');
   }
 }
 
@@ -16,12 +16,12 @@ function dhap_drush_help($section) {
 function dhap_drush_command() {
   $items = array();
 
-  $items['make-site'] = array(
+  $items['site-builder'] = array(
     'description' => 'Generate scaffolding for a typical multi-site drush make directory',
     'arguments' => array(),
     'options' => array(),
     'examples' => array(),
-    'aliases' => array('ms'),
+    'aliases' => array('sb'),
     'bootstrap' => DRUSH_BOOTSTRAP_DRUSH,
   );
 
@@ -31,10 +31,9 @@ function dhap_drush_command() {
 /**
  * Implements drush_hook_COMMAND().
  */
-function drush_dhap_make_site() {
+function drush_dhap_site_builder() {
   // @todo
   // use the template files to write scaffolding code to the filesystem.
   drush_log('Someday maybe..');
-
   return TRUE;
 }
